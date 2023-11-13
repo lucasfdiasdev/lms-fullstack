@@ -3,23 +3,19 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+import { HiOutlineMenuAlt3 } from 'react-icons/hi';
+
 import Logo from '@/app/components/logo';
 import HeaderRoutes from './headerRoutes';
 import ThemeSwitcher from '@/app/utils/theme-switcher';
 import HeaderSidebarRoutes from './headerSidebarRoutes';
-import { HiOutlineMenuAlt3, HiOutlineUser } from 'react-icons/hi';
+import UserMenu from './userMenu';
 
-interface HeaderProps {
-  
-}
-
-const Header: React.FC<HeaderProps> = ({
-  
-}) => {
+const Header = () => {
 
   const [ active, setActive ] = useState(false);
   const [ openSidebar, setOpenSidebar ] = useState(false);
-
+  
   if(typeof window !== 'undefined') {
     window.addEventListener('scroll', () => {
       if(window.scrollY > 85) {
@@ -61,18 +57,20 @@ const Header: React.FC<HeaderProps> = ({
             <div className="flex items-center gap-x-6">
               <HeaderRoutes/>
               {/* navigation */}
-              <div className='800px:hidden'>
+              <button 
+                onClick={() => setOpenSidebar(true)}
+                className='800px:hidden'
+              >
                 <HiOutlineMenuAlt3
                   size={25}
                   className='cursor-pointer dark:text-white text-black'
-                  onClick={() => setOpenSidebar(true)}
+                 
                 />
-              </div>
-              <HiOutlineUser
-                size={25}
-                className='cursor-pointer dark:text-white text-black'
-              />
-               <ThemeSwitcher/>
+              </button>
+              
+              <UserMenu/>
+
+              <ThemeSwitcher/>
             </div>
           </div>
         </div>
@@ -131,8 +129,8 @@ const Header: React.FC<HeaderProps> = ({
             </div>
           )
         }
-
       </div>
+
     </div>
   );
 };

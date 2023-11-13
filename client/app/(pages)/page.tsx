@@ -2,13 +2,7 @@
 
 import Heading from "@/app/utils/heading";
 
-interface Props {
-
-}
-
-const Home: React.FC<Props> = ({
-
-}) => {
+const Home = () => {
   return (
     <div>
       <Heading
@@ -16,7 +10,10 @@ const Home: React.FC<Props> = ({
         description="LMS é uma plataforma de cursos on-line e gratuito para os estudantes de programação"
         keywords="Programação, MERN, Redux, Machine Learning"
       />
-      <div>ola</div>
+      <div className="h-[100vh] w-full">
+        Content home page
+      </div>
+      
     </div>
   )
 }

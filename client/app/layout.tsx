@@ -2,7 +2,10 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Josefin_Sans, Poppins } from 'next/font/google';
 
+import ClientOnly from '@/app/utils/client-only';
 import { ThemeProvider } from '@/app/utils/theme-provider';
+
+import Header from '@/app/components/includes/header/header';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -45,6 +48,9 @@ export default function RootLayout({
           defaultTheme='system'
           enableSystem
         >
+          <ClientOnly>
+            <Header/>
+          </ClientOnly>
           {children}
         </ThemeProvider>
       </body>

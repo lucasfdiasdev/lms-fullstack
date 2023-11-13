@@ -1,5 +1,7 @@
 'use client';
 
+import { BiLogOut } from "react-icons/bi";
+
 import { HeaderSidebarData } from "@/app/data/data";
 import HeaderSidebarItem from "./headerSidebarItem";
 
@@ -19,6 +21,12 @@ const HeaderSidebarRoutes = () => {
           />
         ))
       }
+      <HeaderSidebarItem
+      
+        label="logout"
+        href="/"
+        icon={BiLogOut}
+      />
         
     </div>
   )
