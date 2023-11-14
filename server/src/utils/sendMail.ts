@@ -8,7 +8,7 @@ interface EmailOptions {
   subject: string;
   template: string;
   data: {[key: string]: any};
-}
+};
 
 const smtpHost = process.env.SMTP_HOST;
 const smtpPort = process.env.SMTP_PORT;
@@ -41,7 +41,7 @@ const sendMail = async(options: EmailOptions): Promise<void> => {
     to: email,
     subject,
     html
-  }
+  };
 
   await transporter.sendMail(mailOptions);
 };
